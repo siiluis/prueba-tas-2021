@@ -1,0 +1,21 @@
+<h3>Carrito compras</h3>
+<div>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of productsCar">
+        <th scope="row">{{product.id}}</th>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td><i (click)="deleteProduct(product)" class="bi bi-x-circle" style="font-size: 1rem; color:red;cursor: pointer;"></i></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

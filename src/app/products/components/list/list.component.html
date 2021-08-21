@@ -1,0 +1,33 @@
+<div class="d-flex  flex-column align-items-center ">
+  <form novalidate #form="ngForm" class="w-100 d-flex align-content-center  gap-3">
+
+    <div class="input-group">
+      <span class="input-group-text" id="basic-addon3">Nombre Producto</span>
+      <input [(ngModel)]="name" name="name" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+    </div>
+
+    <div class="input-group">
+      <label class="input-group-text" for="inputGroupSelect01">Categorias</label>
+      <select class="form-select" name="categories" [(ngModel)]="categories">
+        <option></option>
+        <option *ngFor="let categories of listaCategories" [value]="categories.categori_id">{{ categories.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <button (click)="orderAsc()">ASC</button>
+      <button (click)="orderDesc()">DESC</button>
+    </div>
+
+  </form>
+
+  <div>
+    <div class="row row-cols-3 p-2" style="overflow-y: scroll; height: 40em;">
+      <product class="col" *ngFor="let product of productsFilter | productFilter: form.value" [product]="product">
+      </product>
+    </div>
+
+  </div>
+
+</div>
